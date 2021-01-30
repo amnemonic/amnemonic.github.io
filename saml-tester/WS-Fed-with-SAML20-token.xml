@@ -1,0 +1,76 @@
+<trust:RequestSecurityTokenResponseCollection xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512">
+    <trust:RequestSecurityTokenResponse>
+        <trust:Lifetime>
+            <wsu:Created xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2021-01-01T15:47:00.554Z</wsu:Created>
+            <wsu:Expires xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2021-01-01T16:47:00.554Z</wsu:Expires>
+        </trust:Lifetime>
+        <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+            <wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing">
+                <wsa:Address>urn:federation:targetCorp:targetApp</wsa:Address>
+            </wsa:EndpointReference>
+        </wsp:AppliesTo>
+        <trust:RequestedSecurityToken>
+            <Assertion ID="0d6eacce-f306-4129-a9fc-08a15fefb700" IssueInstant="2021-01-01T15:47:00.569Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion" >
+                <Issuer>identity.issuer.tld</Issuer>
+                <Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:SignedInfo>
+                        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+                        <ds:Reference URI="#uuid-db8a585a-7344-4668-9a94-0376b6cd0335">
+                            <ds:Transforms>
+                                <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                                <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                            </ds:Transforms>
+                            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+                            <ds:DigestValue>NmgM1Zao1/MSAIfxEW3nYNtXQrQ=</ds:DigestValue>
+                        </ds:Reference>
+                    </ds:SignedInfo>
+                    <ds:SignatureValue>EyrUq5UGjCXLGqzgPkdPyihFjeCZYVdQXkgDN/wSfpZORsm7g/hZqOT+Dj+sYC32EzrHNObG367bv9hl+btVCsWPpBDpNs7iOYbKSceFedK/D0iuwyC+QcXzymNGiQRVoaQo3QXM3hAZ6sBYxqoJ+jrJrHgdTjtsq5HUamH4xhg=</ds:SignatureValue>
+                    <ds:KeyInfo>
+                        <ds:X509Data>
+                            <ds:X509Certificate>MIICFTCCAYKgAwIBAgIQzfcJCkM1YahDtRGYsLphrDAJBgUrDgMCHQUAMCExHzAdBgNVBAMTFnN0dWJpZHAuc3VzdGFpbnN5cy5jb20wHhcNMTcxMjE0MTE1NDUwWhcNMzkxMjMxMjM1OTU5WjAhMR8wHQYDVQQDExZzdHViaWRwLnN1c3RhaW5zeXMuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDSSq8EX46J1yprfaBdh4pWII+/E7ypHM1NjG7mCwFwbkjq2tpSBuoASrQftbjIKqjVzxtxETw802VJu5CJR4d3Zdy5jD8NRTesfaQDazX7iiqisfnxmIdDhtJS0lXeBlj4MipoUW6l8Qsjx7ltZSwdfFLyh+bMqIrwOhMWGs82vQIDAQABo1YwVDBSBgNVHQEESzBJgBCBBNba7KNF5wnXqmYcejn6oSMwITEfMB0GA1UEAxMWc3R1YmlkcC5zdXN0YWluc3lzLmNvbYIQzfcJCkM1YahDtRGYsLphrDAJBgUrDgMCHQUAA4GBAHonBGahlldp7kcN5HGGnvogT8a0nNpM7GMdKhtzpLO3Uk3HyT3AAIKWiSoEv2n1BTalJ/CY/+te/JZPVGhWVzoi5JYytpj5gM0O7RH0a3/yUE8S8YLV2h0a2gsdoMvTRTnTm9CnXezCKqhjYjwsmOZtiCIYuFqX71d/pg5uoJfs</ds:X509Certificate>
+                        </ds:X509Data>
+                    </ds:KeyInfo>
+                </Signature>
+                <Subject>
+                    <NameID>u123456</NameID>
+                    <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
+                </Subject>
+                <Conditions NotBefore="2021-01-01T15:47:00.554Z" NotOnOrAfter="2021-01-01T16:47:00.554Z" >
+                    <AudienceRestriction>
+                        <Audience>urn:federation:targetCorp:targetApp</Audience>
+                    </AudienceRestriction>
+                </Conditions>
+                <AttributeStatement>
+                    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">
+                        <AttributeValue>John</AttributeValue>
+                    </Attribute>
+                    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">
+                        <AttributeValue>Doe</AttributeValue>
+                    </Attribute>
+                    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress">
+                        <AttributeValue>john.doe@issuingCorp.com</AttributeValue>
+                    </Attribute>
+                    <Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">
+                        <AttributeValue>manager</AttributeValue>
+                        <AttributeValue>author</AttributeValue>
+                        <AttributeValue>editor</AttributeValue>
+                    </Attribute>
+                </AttributeStatement>
+            </Assertion>
+        </trust:RequestedSecurityToken>
+        <trust:RequestedAttachedReference>
+            <SecurityTokenReference d4p1:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns:d4p1="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" >
+                <KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">0d6eacce-f306-4129-a9fc-08a15fefb700</KeyIdentifier>
+            </SecurityTokenReference>
+        </trust:RequestedAttachedReference>
+        <trust:RequestedUnattachedReference>
+            <SecurityTokenReference d4p1:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns:d4p1="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" >
+                <KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">0d6eacce-f306-4129-a9fc-08a15fefb700</KeyIdentifier>
+            </SecurityTokenReference>
+        </trust:RequestedUnattachedReference>
+        <trust:TokenType>urn:oasis:names:tc:SAML:2.0:assertion</trust:TokenType>
+        <trust:RequestType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue</trust:RequestType>
+        <trust:KeyType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</trust:KeyType>
+    </trust:RequestSecurityTokenResponse>
+</trust:RequestSecurityTokenResponseCollection>

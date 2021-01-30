@@ -1,0 +1,71 @@
+<RequestSecurityTokenResponse xmlns="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ns4="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns3="http://www.w3.org/2005/08/addressing" xmlns:ns6="http://www.w3.org/2000/09/xmldsig#" xmlns:ns5="http://docs.oasis-open.org/wsfed/federation/200706" xmlns:ns8="http://www.w3.org/2001/04/xmlenc#" xmlns:ns7="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ns13="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:ns9="http://docs.oasis-open.org/wsfed/authorization/200706" xmlns:ns12="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:ns11="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:ns10="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ns17="urn:oasis:names:tc:xacml:3.0:profile:saml2.0:v2:schema:assertion:wd-14" xmlns:ns16="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" xmlns:ns15="urn:oasis:names:tc:xacml:1.0:policy" xmlns:ns14="urn:oasis:names:tc:xacml:2.0:policy:schema:os" xmlns:ns18="urn:oasis:names:tc:xacml:2.0:context:schema:os" Context="rm=0" >
+    <TokenType>urn:oasis:names:tc:SAML:1.0:assertion</TokenType>
+    <RequestedSecurityToken>
+        <saml1:Assertion xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" AssertionID="uuid-db8a585a-7344-4668-9a94-0376b6cd0335" IssueInstant="2021-01-30T15:55:00.492Z" Issuer="example.net" MajorVersion="1" MinorVersion="1" >
+            <saml1:Conditions NotBefore="2021-01-30T15:55:00.492Z" NotOnOrAfter="2021-01-31T03:55:00.492Z" >
+                <saml1:AudienceRestrictionCondition>
+                    <saml1:Audience>https://example.com</saml1:Audience>
+                </saml1:AudienceRestrictionCondition>
+            </saml1:Conditions>
+            <saml1:AuthenticationStatement AuthenticationInstant="2021-01-30T13:31:05.680Z" AuthenticationMethod="urn:oasis:names:tc:SAML:2.0:ac:classes:X509" >
+                <saml1:Subject>
+                    <saml1:NameIdentifier Format="urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName" NameQualifier="example.net" >U123123</saml1:NameIdentifier>
+                    <saml1:SubjectConfirmation>
+                        <saml1:ConfirmationMethod>urn:oasis:names:tc:SAML:1.0:cm:bearer</saml1:ConfirmationMethod>
+                    </saml1:SubjectConfirmation>
+                </saml1:Subject>
+            </saml1:AuthenticationStatement>
+            <saml1:AttributeStatement>
+                <saml1:Subject>
+                    <saml1:NameIdentifier Format="urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName" NameQualifier="example.net" >U123123</saml1:NameIdentifier>
+                    <saml1:SubjectConfirmation>
+                        <saml1:ConfirmationMethod>urn:oasis:names:tc:SAML:1.0:cm:bearer</saml1:ConfirmationMethod>
+                    </saml1:SubjectConfirmation>
+                </saml1:Subject>
+                <saml1:Attribute AttributeName="windowsaccountname" AttributeNamespace="http://schemas.microsoft.com/ws/2008/06/identity/claims" >
+                    <saml1:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string" >U123123</saml1:AttributeValue>
+                </saml1:Attribute>
+            </saml1:AttributeStatement>
+            <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:SignedInfo>
+                    <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+                    <ds:Reference URI="#uuid-db8a585a-7344-4668-9a94-0376b6cd0335">
+                        <ds:Transforms>
+                            <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </ds:Transforms>
+                        <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+                        <ds:DigestValue>NmgM1Zao1/MSAIfxEW3nYNtXQrQ=</ds:DigestValue>
+                    </ds:Reference>
+                </ds:SignedInfo>
+                <ds:SignatureValue>EyrUq5UGjCXLGqzgPkdPyihFjeCZYVdQXkgDN/wSfpZORsm7g/hZqOT+Dj+sYC32EzrHNObG367bv9hl+btVCsWPpBDpNs7iOYbKSceFedK/D0iuwyC+QcXzymNGiQRVoaQo3QXM3hAZ6sBYxqoJ+jrJrHgdTjtsq5HUamH4xhg=</ds:SignatureValue>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <X509Certificate>MIICFTCCAYKgAwIBAgIQzfcJCkM1YahDtRGYsLphrDAJBgUrDgMCHQUAMCExHzAdBgNVBAMTFnN0dWJpZHAuc3VzdGFpbnN5cy5jb20wHhcNMTcxMjE0MTE1NDUwWhcNMzkxMjMxMjM1OTU5WjAhMR8wHQYDVQQDExZzdHViaWRwLnN1c3RhaW5zeXMuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDSSq8EX46J1yprfaBdh4pWII+/E7ypHM1NjG7mCwFwbkjq2tpSBuoASrQftbjIKqjVzxtxETw802VJu5CJR4d3Zdy5jD8NRTesfaQDazX7iiqisfnxmIdDhtJS0lXeBlj4MipoUW6l8Qsjx7ltZSwdfFLyh+bMqIrwOhMWGs82vQIDAQABo1YwVDBSBgNVHQEESzBJgBCBBNba7KNF5wnXqmYcejn6oSMwITEfMB0GA1UEAxMWc3R1YmlkcC5zdXN0YWluc3lzLmNvbYIQzfcJCkM1YahDtRGYsLphrDAJBgUrDgMCHQUAA4GBAHonBGahlldp7kcN5HGGnvogT8a0nNpM7GMdKhtzpLO3Uk3HyT3AAIKWiSoEv2n1BTalJ/CY/+te/JZPVGhWVzoi5JYytpj5gM0O7RH0a3/yUE8S8YLV2h0a2gsdoMvTRTnTm9CnXezCKqhjYjwsmOZtiCIYuFqX71d/pg5uoJfs</X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </ds:Signature>
+        </saml1:Assertion>
+    </RequestedSecurityToken>
+    <RequestedAttachedReference>
+        <ns4:SecurityTokenReference ns4:TokenType="urn:oasis:names:tc:SAML:1.0:assertion">
+            <ns4:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.0#SAMLAssertionID">uuid-db8a585a-9944-4668-9a94-0376b6cd0335</ns4:KeyIdentifier>
+        </ns4:SecurityTokenReference>
+    </RequestedAttachedReference>
+    <ns12:AppliesTo>
+        <ns3:EndpointReference>
+            <ns13:Address xmlns:xs="http://www.w3.org/2001/XMLSchema">https://example.com/SAML/acs</ns13:Address>
+        </ns3:EndpointReference>
+    </ns12:AppliesTo>
+    <RequestedProofToken>
+        <ComputedKey>http://docs.oasis-open.org/ws-sx/wstrust/200512/CK/PSHA1</ComputedKey>
+    </RequestedProofToken>
+    <Entropy>
+        <BinarySecret Type="http://docs.oasis-open.org/ws-sx/ws-trust/200512Nonce">YuPzUeXHE5hQyB2ExjVLEYgY8ypjzwQZ+1qgDXdslD0=</BinarySecret>
+    </Entropy>
+    <Lifetime>
+        <ns2:Created>2021-01-30T15:55:30.082Z</ns2:Created>
+        <ns2:Expires>2021-01-31T03:55:30.082Z</ns2:Expires>
+    </Lifetime>
+</RequestSecurityTokenResponse>

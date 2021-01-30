@@ -1,0 +1,136 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Token POST</title>
+    <style>
+        body {
+            font-family: Tahoma, Sans-Serif;
+            font-size: 13px;
+        }
+        #content {
+            width: 400px;
+        }
+        ul {
+            padding: 0;
+        }
+        li {
+            /*width: 300px;*/
+            list-style-type: none;
+            border: 1px solid #bbb;
+            border-left: 3px solid #2db300;
+            height: 20px;
+            margin: 4px;
+            padding: 4px;
+            cursor: pointer;
+            
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+        }
+        
+        li:hover {
+            border-left: 3px solid #0000d9;
+            background-color:#eee;
+        }
+        
+        form {
+            margin: 4;
+            display: none;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 200px;
+            font-size: 0.8em;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+
+<div id="content">
+    <h3>WS-Fed</h3>
+        <ul>
+            <li onClick="fetchFileWS(this.textContent);">WS-Fed-with-SAML11-token.xml</li>
+            <li onClick="fetchFileWS(this.textContent);">WS-Fed-with-SAML20-token.xml</li>
+            <li onClick="fetchFileWS(this.textContent);">WS-Fed-with-SAML10-sample_a.xml</li>
+            <li onClick="fetchFileWS(this.textContent);">WS-Fed-with-SAML10-sample_b.xml</li>
+        </ul>
+    
+        <form method="post" action="https://example.com" target="_blank" id="wsfed_mainform">
+            <input type="hidden" id="wa" name="wa" value="wsignin1.0"> <br/>
+            <textarea  id="token" name="wresult" ></textarea>
+            <!-- <button>Submit</button> -->
+        </form>
+    
+    
+    
+    
+    
+    <h3>SAML2</h3>
+        <ul>
+            <li onClick="fetchFileSAML(this.textContent);">SAML20-sustainsys.xml</li>
+            <li onClick="fetchFileSAML(this.textContent);">SAML20-example.xml</li>
+        </ul>
+    
+        <form method="post" action="https://example.com" target="_blank" id="saml_mainform">
+            <textarea  id="SAMLResponse" name="SAMLResponse" ></textarea>
+            <!-- <button>Submit</button> -->
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+function submitWsfedForm() {
+    const form = document.getElementById('wsfed_mainform');
+    form.method = 'POST';
+    form.action = 'https://example.com';
+    form.target = "_blank";
+    form.submit();
+}
+
+function fetchFileWS(fileName) {
+    fetch('./'+fileName)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('token').textContent = data;
+        submitWsfedForm();
+    });
+}
+
+
+//-------------
+
+function submitSamlForm() {
+    const form = document.getElementById('saml_mainform');
+    form.method = 'POST';
+    form.action = 'https://example.com';
+    form.target = "_blank";
+    form.submit();
+}
+
+function fetchFileSAML(fileName) {
+    fetch('./'+fileName)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('SAMLResponse').value = btoa(data);
+        submitSamlForm();
+    });
+}
+
+
+</script>
+
+</body>
+
+</html>
